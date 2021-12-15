@@ -3,7 +3,8 @@ const port = 8000;
 const app = express();
 const cookieParser = require('cookie-parser');
 const expressEjsLayouts = require('express-ejs-layouts');
-
+const db = require('./config/mongoose');
+const User = require('./models/User');
 
 
 
@@ -25,7 +26,7 @@ app.set('layout extractScripts',true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
-app.use('./',require('./routes'));
+app.use('/',require('./routes'));
 
 
 app.listen(port,(err)=>{

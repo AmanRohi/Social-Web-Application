@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a97f35ca56.js" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/a97f35ca56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/layout.css">
+    <%- style %> 
+    <title>
+        <%= title %>
+    </title>
+</head>
+<body>
+    <div class="layout-wrapper">
+        <%- include('_header',{genre:genre}); %>
+        <%- body%>
+        <%- include('_footer',{genre:genre}); %>
+        <%- script %>
+    </div>
+</body>
+</html>
