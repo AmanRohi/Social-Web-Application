@@ -7,6 +7,13 @@ module.exports.signup = function(req,res){
     });
 }
 
+module.exports.signin = function(req,res){
+    return res.render('signin',{
+        title:'Amylan | Sign In',
+        genre:'signin'
+    });
+}
+
 module.exports.createAccount = async function(req,res){
     try{
         if(req.body.confirmPass != req.body.password) {
