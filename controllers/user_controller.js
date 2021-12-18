@@ -14,6 +14,13 @@ module.exports.signin = function(req,res){
     });
 }
 
+module.exports.profile = function(req,res){
+    return res.render('main',{
+        title:'Profile Page',
+        genre:'profile'
+    })
+}
+
 module.exports.createAccount = async function(req,res){
     try{
         if(req.body.confirmPass != req.body.password) {

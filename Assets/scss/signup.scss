@@ -29,7 +29,7 @@
             font-family: 'Courgette', cursive;
             // font-family: 'Baloo Bhaijaan 2', cursive;
             font-size: 3.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
         }
         form{
             @include flexcenter(column);
@@ -95,4 +95,36 @@
     }
     
 
+}
+.signUp-text{
+    display: flex;
+    gap:0.8rem;
+    font-family: 'ubuntu';
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color:white;
+}
+
+.border-line{
+    width:30%;
+    height: 1px;
+    border:1px dashed yellow;
+}
+
+.icons{
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    a{
+        .img-div{
+            width:2.5rem;
+            height:2.5rem;
+            img{
+                width:100%;
+                height: 100%;
+            }
+        }
+    }
 }
