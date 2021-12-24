@@ -15,4 +15,8 @@ router.get('/auth/google/callback',passport.authenticate('google',{failureRedire
 router.get('/auth/facebook',passport.authenticate('facebook',{scope:'email'}));
 router.get('/auth/facebook/callback',passport.authenticate('facebook',{failureRedirect:'/users/sign-in'}),userController.profile);
 
+router.get('/auth/github',passport.authenticate('github',{scope:['user:email']}));
+router.get('/auth/github/callback',passport.authenticate('github',{failureRedirect:'/users/sign-in'}),userController.profile);
+
+
 module.exports = router;

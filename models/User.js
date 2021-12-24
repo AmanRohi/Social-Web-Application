@@ -20,6 +20,15 @@ const UserSchema = mongoose.Schema({
     },
     avatar:{
         type:String
+    },
+    google_id:{
+        type:String
+    },
+    fb_id:{
+        type:String
+    },
+    github_id:{
+        type:String
     }
 },{
     timestamps:true

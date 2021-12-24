@@ -10,6 +10,7 @@ const session = require('express-session');
 const jwtStrategy = require('./config/passport-jwt-strategy');
 const googleStrategy = require('./config/passport-google-oauth-strategy');
 const fbStrategy = require('./config/passport-facebook-strategy');
+const githubStrategy = require('./config/passport-github-strategy');
 
 
 
@@ -33,7 +34,11 @@ app.set('view engine','ejs');
 app.set('views','./views');
 
 app.use(passport.initialize());
-app.use(session({secret:'thisisthesecretkey'}));
+app.use(session({
+    resave:false,
+    saveUninitialized:false,
+    secret:'thisisthesecretkey'
+}));
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
