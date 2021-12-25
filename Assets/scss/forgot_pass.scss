@@ -7,32 +7,22 @@
     flex-direction: $diretion;
     
 }
-@mixin transition-ease {
-    transition: all 0.5s ease;
-}
-
 .sign-up__container{
     width:100%;
     height:100vh;
-    @include flexcenter($diretion:column);
-    background-image: 
-    linear-gradient(to right,#0675e4,rgba(235, 232, 232,0.1) ),
-    url('/images/SignUp/message.jpg');
-    background-repeat: no-repeat;
-    background-position:right;
-    background-size: contain;
+    background: linear-gradient(to right, #0072ff, #00c6ff); 
+    @include flexcenter(column);
+    justify-content: center;
+    align-items: center;
     padding:2rem;
-    
     .form-div{
-        align-self: flex-start;
-        width:40%;
-        margin-top: 2.5%;
+        width:60%;
         @include flexcenter(column);
         gap:2rem;
         .title{
             font-family: 'Courgette', cursive;
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
         }
         form{
             @include flexcenter(column);
@@ -76,69 +66,17 @@
                 font-family: 'ubuntu';
                 background-color: #BFD7ED;
                 font-weight: bold;
-                @include transition-ease();
+                transition: all 0.5s ease;
                 &:hover{
                     background-color: #f39c12;
                     color:white;
                 }
             }
-            .name{
-                text-transform: capitalize;
-            }
+           
         }
-
-
-        .other-link{
-            font-family: 'Noto Sans Display', sans-serif;
-            font-size: 1.2rem;
-            a{
-                text-decoration: none;
-                color:#f9ca24;
-                cursor: pointer;
-            }
-        }
+        
     }
     
 
 }
-.signUp-text{
-    display: flex;
-    gap:0.8rem;
-    font-family: 'ubuntu';
-    justify-content: center;
-    align-items: center;
-    font-size: 1.3rem;
-    color:white;
-    height: 0rem;
-}
 
-.border-line{
-    width:32%;
-    height: 1px;
-    border:1px dashed yellow;
-}
-
-.icons{
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    a{
-        .img-div{
-            width:2.5rem;
-            height:2.5rem;
-            img{
-                width:100%;
-                height: 100%;
-            }
-        }
-    }
-}
-.forgot{
-    font-family: 'Noto Sans Display', sans-serif;
-    font-size: 1.2rem;
-    a{
-        text-decoration: none;
-        color: #f9ca24;
-    }
-}

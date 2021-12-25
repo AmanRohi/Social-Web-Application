@@ -1,4 +1,7 @@
 const User = require('../models/User');
+const ResetUser = require('../models/ResetUser');
+const crypto  = require('crypto');
+const resetPassMailer = require('../mailers/reset_password');
 
 module.exports.signup = function(req,res){
     return res.render('signup',{
@@ -10,16 +13,17 @@ module.exports.signup = function(req,res){
 module.exports.signin = function(req,res){
     return res.render('signin',{
         title:'Amylan | Sign In',
-        genre:'signin'
+        genre:'NoheadFoot'
     });
 }
 
 module.exports.profile = function(req,res){
     return res.render('main',{
         title:'Profile Page',
-        genre:'profile'
-    })
+        genre:'NoheadFoot'
+    });
 }
+
 
 module.exports.createAccount = async function(req,res){
     try{
