@@ -1,10 +1,11 @@
 const nodemailer = require('../config/nodemailer');
+require('dotenv').config();
 
 module.exports.resetPassword = (resetUser)=>{
     console.log('Inside the reset password ..');
     let htmlString = nodemailer.renderTemplate({resetUser:resetUser},'/reset_password/reset_pass.ejs');
     nodemailer.transporter.sendMail({
-        from:'amylan.socio@gmail.com',
+        from:process.env.EMAIL_USERNAME,
         to:resetUser.email,
         subject:'Reset Password || Amylan Social Web',
         html:htmlString,
