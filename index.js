@@ -11,7 +11,8 @@ const jwtStrategy = require('./config/passport-jwt-strategy');
 const googleStrategy = require('./config/passport-google-oauth-strategy');
 const fbStrategy = require('./config/passport-facebook-strategy');
 const githubStrategy = require('./config/passport-github-strategy');
-
+const MongoStore = require('connect-mongo');
+ 
 
 
 
@@ -35,9 +36,16 @@ app.set('views','./views');
 
 app.use(passport.initialize());
 app.use(session({
-    resave:false,
     saveUninitialized:false,
-    secret:'thisisthesecretkey'
+    secret:'thisisthesecretkey',
+    resave:false,
+    cookie:{
+        maxAge:(1000*100*60)
+    },
+    store: MongoStore.create({
+        mongoUrl:'mongodb://localhost/social-application-dev',
+        autoRemove:'disabled',
+    })
 }));
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);

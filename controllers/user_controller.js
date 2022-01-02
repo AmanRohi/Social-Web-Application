@@ -4,6 +4,9 @@ const crypto  = require('crypto');
 const resetPassMailer = require('../mailers/reset_password');
 
 module.exports.signup = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('signup',{
         title:'Amylan | Sign Up',
         genre:'signup'
@@ -11,6 +14,9 @@ module.exports.signup = function(req,res){
 }
 
 module.exports.signin = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('signin',{
         title:'Amylan | Sign In',
         genre:'NoheadFoot'
@@ -18,9 +24,9 @@ module.exports.signin = function(req,res){
 }
 
 module.exports.profile = function(req,res){
-    return res.render('main',{
+    return res.render('profile',{
         title:'Profile Page',
-        genre:'NoheadFoot'
+        genre:'headFoot'
     });
 }
 
@@ -45,4 +51,14 @@ module.exports.createAccount = async function(req,res){
         console.log('Error in creating the account ',error);
         return res.redirect('back');
     }
+}
+
+
+module.exports.signOut = function(req,res){
+    req.logout();
+    return res.redirect('/users/sign-in');
+}
+
+module.exports.logIn = function(req,res){
+    return res.redirect('/users/profile');
 }
